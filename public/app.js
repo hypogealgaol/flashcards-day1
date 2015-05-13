@@ -4,6 +4,8 @@ and an array of dependencies for your application. For now, we have none,
 but get excited for upcoming workshops! */ 
 
 
+//ng class allows you to add object that is css class
+
 //properties and methods on this scope, the scope being the app var just created. 
 app.controller('FlashCardController', function($scope) {
 
@@ -57,6 +59,18 @@ app.controller('MainController', function($scope) {
         ]
     	}
 	]
+
+	$scope.answerQuestion = function(theAnswer) {
+		 
+		console.log(theAnswer); 
+		$scope.answered = function() {
+
+		}
+
+
+	}
+
+	
 
 	
 });
