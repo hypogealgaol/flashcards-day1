@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<script src="angular.js"></script><!-- added by sinjihn --> 
+<script src="app.js"></script><!-- added by sinjihn --> 
+
 <html>
     <head>
         <title>Flash Cards</title>
@@ -6,6 +9,42 @@
         <link rel="stylesheet" type="text/css" href="reset.css" />
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
+
     <body>
+    	<div ng-app="Flashcards" ng-controller = "MainController"><!-- means angular is running script with name in app.js --> 	
+    		
+    		{{2+2}}
+
+    		{{flashCards}}
+
+    		<div class="flash-card" ng-controller = "FlashCardController" >
+    			<h1>{{flashCard.question}}</h1> <!-- the name here is referencing an inner class var in app.js--> 
+    			<ul class="flash-card-answers">
+      			 <!-- <li class="flash-card-answer">
+            			I mean, yeah.
+       			 </li>
+      			  <li class="flash-card-answer">
+            			No, it's not.
+      			  </li>
+      			  <li class="flash-card-answer">
+            			What's a flash card?
+       			 </li> -->
+       			 	<li class = "flash-card-answer" ng-repeat = "answer in flashCard.answers" ng-click = "answerQuestion(answer)">
+       			 		<!-- note i had to reference flashCard.answers to get the array --> 
+       			 		<!-- repeat makes a new scope every iteration --> 
+       			 		{{answer.text}}
+       			 	</li>
+   			 	</ul>
+
+   			 	<h2 class="answer-feedback" ng-show="answered">
+   					 <span ng-show="answeredCorrectly">Yeah, you got it right!</span>
+  					 <span ng-show="!answeredCorrectly">Nope, you got it wrong.</span>
+				</h2>
+			</div>
+
+    	</div>
+    	
     </body>
+
+
 </html>
