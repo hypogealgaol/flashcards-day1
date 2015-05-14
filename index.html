@@ -17,7 +17,9 @@
 
     		<!--{{flashCards}}--> 
 
-    		<div class="flash-card" ng-controller = "MainController" ng-repeat = "flashCard in flashCards">
+    		<div class="flash-card" 
+    		ng-controller = "MainController" 
+    		ng-repeat = "flashCard in flashCards">
     			<h1>{{flashCard.question | uppercase}}</h1> <!-- the name here is referencing an inner class var in app.js--> 
     			<ul class="flash-card-answers">
       			 <!-- <li class="flash-card-answer">
@@ -41,7 +43,7 @@
        			 	</li>
 				</ul>
    			 	<h2 class="answer-feedback" 
-   			 	ng-class = "{correct: answeredCorrectly===true, incorrect: answeredCorrectly===false}"
+   			 	ng-class = "{correct: flashCard.answeredCorrectly===true, incorrect: flashCard.answeredCorrectly===false}"
    			 	ng-show="flashCard.answered">
    					 <span ng-show="flashCard.answeredCorrectly">Yeah, you got it right!</span>
   					 <span ng-show="!flashCard.answeredCorrectly">Nope, you got it wrong.</span>
