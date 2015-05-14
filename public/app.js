@@ -72,7 +72,7 @@ app.controller('MainController', function($scope) {
 		if(flashCard.answered == false) {
 			flashCard.answered = true; //now they've answered
 
-			//change the color
+			//change the color depending on whether correct or incorrect
 			if(theAnswer.correct == true) {
 				flashCard.answeredCorrectly = true;
 			}
@@ -81,7 +81,7 @@ app.controller('MainController', function($scope) {
 			}
 		}
 
-		
-
+		//could do the same thing without attributing to individual flashcard
+		//and use $scope.answered instead 
 	}
 }); 
