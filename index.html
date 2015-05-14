@@ -18,7 +18,7 @@
     		<!--{{flashCards}}--> 
 
     		<div class="flash-card" ng-controller = "MainController" ng-repeat = "flashCard in flashCards">
-    			<h1>{{flashCard.question}}</h1> <!-- the name here is referencing an inner class var in app.js--> 
+    			<h1>{{flashCard.question | uppercase}}</h1> <!-- the name here is referencing an inner class var in app.js--> 
     			<ul class="flash-card-answers">
       			 <!-- <li class="flash-card-answer">
             			I mean, yeah.
@@ -31,7 +31,7 @@
        			 </li> -->
        			 	<li class = "flash-card-answer" 
        			 	ng-repeat = "answer in flashCard.answers" 
-       			 	ng-click = "answerQuestion(answer)">
+       			 	ng-click = "answerQuestion(answer, flashCard)">
        			 		<!-- note i had to reference flashCard.answers to get the array --> 
        			 		<!-- repeat makes a new scope every iteration --> 
        			 		{{answer.text}}
@@ -42,9 +42,9 @@
 				</ul>
    			 	<h2 class="answer-feedback" 
    			 	ng-class = "{correct: answeredCorrectly===true, incorrect: answeredCorrectly===false}"
-   			 	ng-show="answered">
-   					 <span ng-show="answeredCorrectly">Yeah, you got it right!</span>
-  					 <span ng-show="!answeredCorrectly">Nope, you got it wrong.</span>
+   			 	ng-show="flashCard.answered">
+   					 <span ng-show="flashCard.answeredCorrectly">Yeah, you got it right!</span>
+  					 <span ng-show="!flashCard.answeredCorrectly">Nope, you got it wrong.</span>
 				</h2>
 
    			 	
